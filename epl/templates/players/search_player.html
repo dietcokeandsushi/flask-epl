@@ -1,7 +1,7 @@
 {% for player in players %}
   <tr>
-    <td>1</td>
-    <td>player name</td>
+    <td>{{loop.index}}</td>
+    <td>{{player.name}}</td>
     <td>
       <a href="#" class="btn btn-outline-info btn-sm">
         <i class="bi bi-info-circle"></i>
