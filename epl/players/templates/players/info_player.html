@@ -11,7 +11,7 @@
     <div class="row mb-3">
       <div class="col-md-4 mt-3">
         <div class="card">
-          <img src="{{ player.img }}" alt="{{ player.name }}" class="img-thumbnail p-5">
+          <img src="{{player.img}}" alt="" class="img-thumbnail p-5">
           <div>
             <h4 class="text-center text-success">
               Player Photo
@@ -34,7 +34,7 @@
             <hr>
             <div class="row">
               <div class="col"><h2>Nationality</h2></div>
-              <div class="col"><h2 class="text-secondary float-end">{{player.Nationality}}</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{player.nationality}}</h2></div>
             </div>
             <hr>
             <div class="row">
@@ -48,7 +48,12 @@
             </div>
             <hr>
             <div class="row">
-              <div class="col"><h2>Clubs</h2></div>
+              <div class="col"><h2>Clean Sheets</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{player.clean_sheets|default('N/A')}}</h2></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col"><h2>Club</h2></div>
               <div class="col"><h2 class="text-secondary float-end">{{player.club.name}}</h2></div>
             </div>
             <hr>

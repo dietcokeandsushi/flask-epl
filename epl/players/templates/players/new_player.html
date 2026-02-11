@@ -15,7 +15,7 @@
       </div>
       <div class="mb-3">
         <label for="position" class="form-label">Select Position</label>
-        <select name="position" class="form-select" aria-label="Default select example">
+        <select name="position" class="form-select">
           <option value="Goalkeeper">Goalkeeper</option>
           <option value="Defender">Defender</option>
           <option value="Midfielder">Midfielder</option>
@@ -36,20 +36,25 @@
       </div>
       
       <div class="mb-3">
+        <label for="clean_sheets" class="form-label">Clean Sheets <small class="text-muted"></small></label>
+        <input type="number" name="clean_sheets" class="form-control" value="" min="0">
+      </div>
+      
+      <div class="mb-3">
         <label for="img" class="form-label">Image URL</label>
         <input name="img" type="text" class="form-control" id="img" required>
       </div>
       <div class="mb-3">
         <label for="club_id" class="form-label">Select Club</label>
-        <select name="club_id" class="form-select" aria-label="Default select example">
+        <select name="club_id" class="form-select">
           {% for club in clubs %}
             <option value="{{club.id}}">{{club.name}}</option>
           {% endfor %}
-          
+
         </select>
       </div>
       <button type="submit" class="btn btn-outline-success">
-        <i class="bi bi-folder-plus"></i>
+
         New Player
       </button>
     </form>

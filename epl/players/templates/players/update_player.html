@@ -15,25 +15,16 @@
       </div>
       <div class="mb-3">
         <label for="position" class="form-label">Select Position</label>
-        <select name="position" class="form-select" aria-readonly="true">
-          <option value="Goalkeeper" {% if player.position == 'Goalkeeper' %}
-            selected
-          {% endif %}
-          >Goalkeeper</option>
-          <option value="Defender" {% if player.position == 'Defender' %}
-            selected
-          {% endif %}>Defender</option>
-          <option value="Midfielder" {% if player.position == 'Midfielder' %}
-            selected
-          {% endif %}>Midfielder</option>
-          <option value="Forward" {% if player.position == 'Forward' %}
-            selected
-          {% endif %}>Forward</option>
+        <select name="position" class="form-select">
+          <option value="Goalkeeper" {% if player.position == 'Goalkeeper' %}selected{% endif %}>Goalkeeper</option>
+          <option value="Defender" {% if player.position == 'Defender' %}selected{% endif %}>Defender</option>
+          <option value="Midfielder" {% if player.position == 'Midfielder' %}selected{% endif %}>Midfielder</option>
+          <option value="Forward" {% if player.position == 'Forward' %}selected{% endif %}>Forward</option>
         </select>
       </div>
       <div class="mb-3">
         <label for="nationality" class="form-label">Nationality</label>
-        <input value="{{player.nationality}}" readonly name="nationality" type="text" class="form-control" id="nationality" required>
+        <input value="{{player.nationality}}" name="nationality" type="text" class="form-control" id="nationality" required>
       </div>
       <div class="mb-3">
         <label for="goals" class="form-label">Goals</label>
@@ -43,25 +34,28 @@
         <label for="squad_no" class="form-label">Squad No</label>
         <input value="{{player.squad_no}}" name="squad_no" type="number" class="form-control" id="squad_no" required>
       </div>
+      
+      <div class="mb-3">
+        <label for="clean_sheets" class="form-label">Clean Sheets <small class="text-muted"></small></label>
+        <input value="{{player.clean_sheets|default('')}}" name="clean_sheets" type="number" class="form-control" id="clean_sheets" min="0">
+      </div>
+      
       <div class="mb-3">
         <label for="img" class="form-label">Image URL</label>
         <input value="{{player.img}}" name="img" type="text" class="form-control" id="img" required>
       </div>
       <div class="mb-3">
-        <label for="position" class="form-label">Select Club</label>
-        <select name="club_id" class="form-select" aria-label="Default select example">
+        <label for="club_id" class="form-label">Select Club</label>
+        <select name="club_id" class="form-select">
           {% for club in clubs %}
-            <option value="{{club.id}}" {% if player.club.name == club.name %}
-              selected
-            {% endif %}
-            >{{club.name}}</option>
+            <option value="{{club.id}}" {% if player.club.name == club.name %}selected{% endif %}>{{club.name}}</option>
           {% endfor %}
-          
+
         </select>
       </div>
       <button type="submit" class="btn btn-outline-success">
         <i class="bi bi-pencil-square"></i>
-        Update Club
+        Update Player
       </button>
     </form>
   </div>
